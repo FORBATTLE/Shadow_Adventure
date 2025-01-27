@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3un0n64s0sib"]
+
+[ext_resource type="PackedScene" uid="uid://ct0t1nc8rnqn4" path="res://Player/Samurai_Archer/archer.tscn" id="1_4rjts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6en3"]
+size = Vector2(968, 86)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Archer" parent="." instance=ExtResource("1_4rjts")]
+position = Vector2(67, 161)
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(486, 357)
+shape = SubResource("RectangleShape2D_f6en3")
