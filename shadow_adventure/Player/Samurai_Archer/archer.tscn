@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://ct0t1nc8rnqn4"]
+[gd_scene load_steps=101 format=3 uid="uid://ct0t1nc8rnqn4"]
 
 [ext_resource type="Script" path="res://Player/Samurai_Archer/archer.gd" id="1_jh4hw"]
 [ext_resource type="Texture2D" uid="uid://bv46xtcddkd0v" path="res://Player/Samurai_Archer/Shot.png" id="1_ofvyy"]
@@ -649,8 +649,54 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ihwf0"]
+resource_name = "LRun"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Regular Archer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"LRun", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Regular Archer:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_c8cdb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Regular Archer:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ie6ir"]
 _data = {
+"LRun": SubResource("Animation_ihwf0"),
+"RESET": SubResource("Animation_c8cdb"),
 "Run": SubResource("Animation_xvbty")
 }
 
@@ -670,7 +716,6 @@ visible = false
 modulate = Color(0.0728426, 0.0728426, 0.0728426, 1)
 sprite_frames = SubResource("SpriteFrames_jb2um")
 animation = &"ArcherWalk"
-frame_progress = 0.534784
 
 [node name="StateMachinePlayer" type="Node" parent="."]
 script = ExtResource("8_hmhha")
