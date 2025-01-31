@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyd8vu45shlrv"]
+
+[ext_resource type="PackedScene" uid="uid://b6jcdy0bkk7pu" path="res://Knight.tscn" id="2_tf1tx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d2t8"]
+size = Vector2(1014, 113.5)
+
+[node name="level_1" type="Node2D"]
+
+[node name="Knight" parent="." instance=ExtResource("2_tf1tx")]
+position = Vector2(0, 93)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(461, 299)
+shape = SubResource("RectangleShape2D_7d2t8")
