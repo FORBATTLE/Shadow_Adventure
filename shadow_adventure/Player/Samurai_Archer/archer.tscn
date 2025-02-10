@@ -632,23 +632,6 @@ transitions = {
 }
 name = ""
 
-[sub_resource type="Animation" id="Animation_xvbty"]
-resource_name = "Run"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Regular Archer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"ArcherRun", 1.0, false],
-"method": &"play"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_ihwf0"]
 resource_name = "LRun"
 tracks/0/type = "method"
@@ -693,6 +676,23 @@ tracks/0/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_xvbty"]
+resource_name = "Run"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Regular Archer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"ArcherRun", 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ie6ir"]
 _data = {
 "LRun": SubResource("Animation_ihwf0"),
@@ -731,3 +731,5 @@ position = Vector2(0, 13)
 libraries = {
 "": SubResource("AnimationLibrary_ie6ir")
 }
+
+[node name="shoot_timer" type="Timer" parent="."]
