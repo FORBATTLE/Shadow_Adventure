@@ -11,7 +11,7 @@ var is_shooting = false
 ###
 @export var max_health: int = 100
 var current_health: int
-
+var health_bar: TextureProgressBar
 
 ##
 @export var arrow = preload("res://Player/Samurai_Archer/arrow.tscn")
@@ -26,6 +26,9 @@ func _ready():
 	shoot_timer.timeout.connect(_reset_shoot)
 	add_child(shoot_timer)
 	current_health = max_health
+	health_bar = get_node("UI/TextureProgressBar")  # Adjust the path as needed
+	update_health_bar()
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	
@@ -110,3 +113,6 @@ func die():
 	print("Player has died!")
 	# Optionally, restart the scene or disable player controls
 	get_tree().reload_current_scene()
+func update_health_bar():
+	if health_bar:
+		health_bar.value = current_health
